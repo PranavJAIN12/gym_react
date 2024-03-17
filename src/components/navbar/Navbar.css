@@ -66,9 +66,12 @@
     font-size: 1.2rem;
     cursor: pointer;
     margin: 1rem;
+    text-decoration: none;
+    color: #F0A500;
   }
   .desktopMenuListItem:hover{
-    color: #1A1A1A;
-    border-bottom: 1px solid black;
+    color: #F0A500;
+    border-bottom: 1px solid orange;
     padding-bottom: 0.5rem;
+    
   }
