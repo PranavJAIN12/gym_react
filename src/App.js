@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
 import Footer from './components/Footer/Footer';
-import ExcerciseDetail from './components/Pages/ExcerciseDetail';
-import Home from './components/Pages/Home';
+import ExerciseDetail from './Pages/ExerciseDetail';
+import Home from './Pages/Home';
 import Navbar from './components/navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/excercise/:id' element={<ExcerciseDetail/>}/>
+        <Route path='/excercise/:id' element={<ExerciseDetail/>}/>
       </Routes>
       <Footer/>
     </>
