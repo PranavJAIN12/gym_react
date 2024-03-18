@@ -1,30 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SearchExercise.css';
 import { exerciseOption, fetchData } from '../Utils/fetchData';
+import HorizontalScroll from './HorizontalScroll';
 
 export default function SearchExercise() {
   const [search, setSearch] = useState('');
   const [placeholderText, setPlaceholderText] = useState('Search exercise');
+  const[exercises, setExercises] = useState([])
+  const[bodyParts, setBodyParts] = useState([])
+
+  useEffect(()=>{
+    const fetchExerciseData = async()=>{
+      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOption)
+      setBodyParts(['all', ...bodyPartsData])
+    }
+    fetchExerciseData();
+  },[])
 
   const handleSearch = async () => {
-    console.log('button Clicked');
+    console.log("button clicked")
     if (search) {
-      const exerciseData = await fetchData(
-        `https://exercisedb.p.rapidapi.com/exercises/bodyPartList`,
-        exerciseOption
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOption);
+      
+      const searchedExercises = exercisesData.filter(
+        (item) => item.name.toLowerCase().includes(search)
+               || item.target.toLowerCase().includes(search)
+               || item.equipment.toLowerCase().includes(search)
+               || item.bodyPart.toLowerCase().includes(search),
       );
-      console.log(exerciseData);
-      if (exerciseData) {
-        const searchedExercises = exerciseData.filter(
-          (item) => (
-            (item.name && item.name.toLowerCase().includes(search)) ||
-            (item.target && item.target.toLowerCase().includes(search)) ||
-            (item.equipment && item.equipment.toLowerCase().includes(search)) ||
-            (item.bodyPart && item.bodyPart.toLowerCase().includes(search))
-          )
-        );
-        console.log(searchedExercises);
-      }
+
+      
+
+      setSearch('');
+      setExercises(searchedExercises);
+      console.log(exercisesData)
     }
   };
   
@@ -48,6 +57,9 @@ export default function SearchExercise() {
           Search
         </button>
       </div>
+        <div>
+          <HorizontalScroll data={bodyParts}/>
+        </div>
     </section>
   );
 }
