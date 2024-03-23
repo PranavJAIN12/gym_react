@@ -3,10 +3,10 @@ import './SearchExercise.css';
 import { exerciseOption, fetchData } from '../Utils/fetchData';
 import HorizontalScroll from './HorizontalScroll';
 
-export default function SearchExercise() {
+export default function SearchExercise({setExercises, bodyPart, setBodyPart}) {
   const [search, setSearch] = useState('');
   const [placeholderText, setPlaceholderText] = useState('Search exercise');
-  const[exercises, setExercises] = useState([])
+  // const[exercises, setExercises] = useState([])
   const[bodyParts, setBodyParts] = useState([])
 
   useEffect(()=>{
@@ -58,7 +58,7 @@ export default function SearchExercise() {
         </button>
       </div>
         <div>
-          <HorizontalScroll data={bodyParts}/>
+          <HorizontalScroll data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
         </div>
     </section>
   );

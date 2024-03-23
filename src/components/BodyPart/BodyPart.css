@@ -1,0 +1,16 @@
+
+.bodypart-card{
+    border: 1px solid wheat;
+    width: 20rem;
+    justify-content: center;
+    text-align: center;
+    margin: 1rem;
+    align-items: center;
+}
+.bodypart-card img{
+    height: 50px;
+    width: auto;
+    justify-content: center;
+    object-fit: cover;
+    margin-top: 1rem;
+}

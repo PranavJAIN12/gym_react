@@ -1,17 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
+import BodyPart from "./BodyPart/BodyPart";
+import LeftArrowIcon from '../Assets/left-arrow.png'
+import RightArrowIcon from '../Assets/right-arrow.png'
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
-export default function HorizontalScroll({ data }) {
+export default function HorizontalScroll({ data, bodyPart, setBodyPart }) {
+
+  
+
   return (
-    <section id="horizontalScroll">
-      {data.map((item) => (
-        <div 
-        key={item.id}
-        itemID={item.id}
-        title={item.id}>
-        {item}
-        
-        </div>
-      ))}
-    </section>
+    <ScrollMenu>
+      <section id="horizontalScroll" style={{width:'100%', display: 'flex', flexWrap: 'wrap', justifyContent:'center'}} >
+        {data.map((item) => (
+          <div key={item.id} itemID={item.id} title={item.id}>
+            <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+          </div>
+        ))}
+      </section>
+      </ScrollMenu>
+    
   );
 }
