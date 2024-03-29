@@ -11,7 +11,7 @@ export default function BodyPart({item, bodyPart, setBodyPart}) {
     }}>
 
     <img src={gym} alt='img'  />
-    <h1>{item.toUpperCase()}</h1>
+    <h1>{item}</h1>
     
     </div>
     </section>

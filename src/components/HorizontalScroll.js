@@ -10,7 +10,7 @@ export default function HorizontalScroll({ data, bodyPart, setBodyPart }) {
 
   return (
     <ScrollMenu>
-      <section id="horizontalScroll" style={{width:'100%', display: 'flex', flexWrap: 'wrap', justifyContent:'center'}} >
+      <section id="horizontalScroll" style={{width:'100%', height:'2rem', display: 'flex', flexWrap: 'wrap', justifyContent:'center'}} >
         {data.map((item) => (
           <div key={item.id} itemID={item.id} title={item.id}>
             <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />

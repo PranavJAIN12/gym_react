@@ -6,11 +6,13 @@
     text-align: center;
     margin: 1rem;
     align-items: center;
+    height: auto;
 }
 .bodypart-card img{
-    height: 50px;
+    height: 40px;
     width: auto;
     justify-content: center;
     object-fit: cover;
     margin-top: 1rem;
+    padding: 0rem;
 }
